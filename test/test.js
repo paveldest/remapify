@@ -20,6 +20,10 @@ describe('remapify', function(){
 
   beforeEach(function(){
     b = new Emitter()
+    b.pipeline = {
+      get: sinon.stub().returns(sinon.stub())
+    }
+
     b.transform = sinon.stub()
     b._extensions = ['.js', '.json']
     sinon.spy(b, 'emit')

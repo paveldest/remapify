@@ -105,18 +105,13 @@ All options specified by the [glob](https://www.npmjs.org/package/glob) module c
 ### events
 Remapify will emit events while processing. This is implemented to make testing easier, but… maybe it'll be useful for other things. The events are emitted on the bundle.
 
-#### `b.on('remapify:file', function(file, expandedAliases, globber, pattern){})`
-Emitted when the globbing finds a file to remap.
-
-* **`file`** The path to the file
-* **`expandedAliases`** The list of files and what they will be exposed as as found so far. Includes this file.
-* **`globber`** The full [glob instance](https://github.com/isaacs/node-glob#properties).
-* **`pattern`** The glob pattern in use.
-
 #### `b.on('remapify:files', function(file, expandedAliases, globber, pattern){})`
 Emitted when all files have been found to be remapped.
 
-The arguments are the same as above.
+* **`files`** The files found to alias
+* **`expandedAliases`** The list of files and what they will be exposed as as found so far. Includes this file.
+* **`globber`** The full [glob instance](https://github.com/isaacs/node-glob#properties).
+* **`pattern`** The glob pattern in use.
 
 ## Tests
 All tests are mocha. You can run them with either `npm test` or `mocha test`.
